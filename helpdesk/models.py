@@ -1005,7 +1005,7 @@ def create_usersettings(sender, created_models=[], instance=None, created=False,
     'DoesNotExist: UserSettings matching query does not exist.' errors.
     """
     from helpdesk.settings import DEFAULT_USER_SETTINGS
-    if sender == settings.AUTH_USER_MODEL and created:
+    if sender == get_user_model() and created:
         # This is a new user, so lets create their settings entry.
         s, created = UserSettings.objects.get_or_create(user=instance, defaults={'settings': DEFAULT_USER_SETTINGS})
         s.save()
