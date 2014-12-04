@@ -1,6 +1,9 @@
 {% extends "helpdesk/base.html" %}{% load i18n bootstrap %}
 
 {% block helpdesk_title %}{% trans "Edit Ticket" %}{% endblock %}
+{% block helpdesk_head %}
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap-datepicker/css/datepicker3.css' type='text/css'>
+{% endblock %}
 
 {% block helpdesk_body %}
 <div class="col-xs-6">
@@ -37,4 +40,15 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block helpdesk_tail %}
+<script src="{{ STATIC_URL }}bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#id_due_date').datepicker({
+    format: 'mm/dd/yyyy'
+  });
+});
+</script>
 {% endblock %}

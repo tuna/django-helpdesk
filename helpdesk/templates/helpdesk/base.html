@@ -11,11 +11,9 @@
 
         <script src="{{ STATIC_URL }}jquery/jquery-1.11.1.min.js"></script>
         <script src='{{ STATIC_URL }}helpdesk/jquery-ui-1.8.9.custom.min.js' type='text/javascript' language='javascript'></script>
-        <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/helpdesk-extend.css' type='text/css'  media="screen" >
 
-        <!--link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/helpdesk-print.css' type='text/css' media="print" /-->
-        <!--link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/jquery-smoothness-theme/jquery-ui-1.8.9.custom.css' type='text/css' /-->
         <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/helpdesk-extend.css' type='text/css'  media="screen" >
         <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel='alternate' href='{% url 'helpdesk_rss_user' user.get_username %}' type='application/rss+xml' title='{% trans "My Open Tickets" %}' />
         <link rel='alternate' href='{% url 'helpdesk_rss_activity' %}' type='application/rss+xml' title='{% trans "All Recent Activity" %}' />
@@ -66,6 +64,8 @@
         </div>
         {% include "helpdesk/debug.html" %}
     </body>
+    {% block helpdesk_tail %}
+    {% endblock %}
 </html>
 {% endwith %}
 {% endwith %}

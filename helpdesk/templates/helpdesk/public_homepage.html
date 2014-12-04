@@ -1,5 +1,9 @@
 {% extends "helpdesk/public_base.html" %}{% load i18n bootstrap %}{% load url from future %}
 
+{% block helpdesk_head %}
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap-datepicker/css/datepicker3.css' type='text/css'>
+{% endblock %}
+
 {% block helpdesk_body %}
 
 {% if kb_categories %}
@@ -89,4 +93,15 @@
 </div></div></div>
 {% endif %}
 
+{% endblock %}
+
+{% block helpdesk_tail %}
+<script src="{{ STATIC_URL }}bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#id_due_date').datepicker({
+    format: 'mm/dd/yyyy'
+  });
+});
+</script>
 {% endblock %}
