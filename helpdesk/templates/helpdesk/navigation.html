@@ -8,6 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <img class="navbar-brand" src="{{ STATIC_URL }}tuna/logo-small.png" />
     </div>
 
     <div class="collapse navbar-collapse" id="helpdesk-nav-collapse">
@@ -45,7 +46,7 @@
             </ul>
 
             {% if not query %}
-                    <form class="navbar-form navbar-left" id='searchform' method='get' action="{% url 'helpdesk_list' %}">
+                    <form class="navbar-form navbar-left visible-lg" id='searchform' method='get' action="{% url 'helpdesk_list' %}">
                         <div class="input-group">
                             <input type='text' name='q' size='15' class='input form-control' placeholder='{% trans "Search..." %}' id='search_query' title='{% trans "Enter a keyword, or a ticket number to jump straight to that ticket." %}'/>
                             <input type='hidden' name='status' value='1' /><input type='hidden' name='status' value='2' /><input type='hidden' name='status' value='3' />

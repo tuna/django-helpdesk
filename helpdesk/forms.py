@@ -333,7 +333,7 @@ class PublicTicketForm(CustomFieldMixin, forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(),
-        label=_('Summary of your query'),
+        label=_('Summary of your issue'),
         )
 
     submitter_email = forms.EmailField(

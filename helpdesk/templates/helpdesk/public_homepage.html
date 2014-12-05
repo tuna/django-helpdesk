@@ -1,5 +1,6 @@
 {% extends "helpdesk/public_base.html" %}{% load i18n bootstrap %}{% load url from future %}
 
+{% block helpdesk_title %}{% trans "Submit Ticket" %}{% endblock %}
 {% block helpdesk_head %}
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap-datepicker/css/datepicker3.css' type='text/css'>
 {% endblock %}
