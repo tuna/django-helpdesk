@@ -25,6 +25,7 @@
 {% endif %}
 
 {% if helpdesk_settings.HELPDESK_SUBMIT_A_TICKET_PUBLIC %}
+<div class="row">
 <div class="col-md-8">
 <div class="panel panel-default">
 
@@ -93,7 +94,7 @@
 {% csrf_token %}</form>
 </div></div></div>
 {% endif %}
-
+</div>
 {% endblock %}
 
 {% block helpdesk_tail %}
