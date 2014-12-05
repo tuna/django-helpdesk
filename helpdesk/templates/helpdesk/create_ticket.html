@@ -44,9 +44,13 @@
 <script src="{{ STATIC_URL }}bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-  $('#id_due_date').datepicker({
-    format: 'mm/dd/yyyy'
-  });
+	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		$('#id_due_date').attr({'type': 'date'});
+	} else {
+	  $('#id_due_date').datepicker({
+		format: 'mm/dd/yyyy'
+	  });
+	}
 });
 </script>
 {% endblock %}
