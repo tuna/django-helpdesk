@@ -34,11 +34,11 @@ $(document).ready(function() {
 {% endblock %}
 {% block h1_title %}Tickets
     {% if from_saved_query %} [{{ saved_query.title }}]{% endif %}{% endblock %}
-{% block helpdesk_body %}
 
+{% block helpdesk_body %}
 {% load in_list %}
 
-<div id="searchtabs" class="row">
+<div id="searchtabs">
     {% comment %}<ul>
     <li><a href='#tabfilter'>{% trans "Query Options" %}</a></li>
     {% if not from_saved_query %}
@@ -216,7 +216,7 @@ $(document).ready(function() {
 <div class="row">
 
 {{ search_message|safe }}
-<form method='post' action='{% url 'helpdesk_mass_update' %}' id="ticket_mass_update">
+<form method='post' action='{% url 'helpdesk_mass_update' %}' id="ticket_mass_update" class="col-md-12">
 <table class="table table-hover table-bordered table-striped">
 <caption>{% trans "Tickets" %}</caption>
 <thead>
@@ -258,6 +258,7 @@ $(document).ready(function() {
 <p><label>{% trans "Select:" %} </label> <a href='#select_all' id='select_all'>{% trans "All" %}</a> <a href='#select_none' id='select_none'>{% trans "None" %}</a> <a href='#select_inverse' id='select_inverse'>{% trans "Inverse" %}</a></p>
 
 <p><label for='id_mass_action'>{% trans "With Selected Tickets:" %}</label> <select name='action' id='id_mass_action'><option value='take'>{% trans "Take (Assign to me)" %}</option><option value='delete'>{% trans "Delete" %}</option><optgroup label='{% trans "Close" %}'><option value='close'>{% trans "Close (Don't Send E-Mail)" %}</option><option value='close_public'>{% trans "Close (Send E-Mail)" %}</option></optgroup><optgroup label='{% trans "Assign To" %}'><option value='unassign'>{% trans "Nobody (Unassign)" %}</option>{% for u in user_choices %}<option value='assign_{{ u.id }}'>{{ u.get_username }}</option>{% endfor %}</optgroup></select> <input type='submit' value='Go' /></p>
-{% csrf_token %}</form>
-{% endblock %}
+{% csrf_token %}
+</form>
 </div>
+{% endblock %}

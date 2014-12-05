@@ -2,7 +2,6 @@
 {% block helpdesk_title %}{% trans "Dashboard" %}{% endblock %}
 
 {% block helpdesk_body %}
-
 {% comment %}
 <div class="alert alert-warning">
 <p>{% trans "Welcome to your Helpdesk Dashboard! From here you can quickly see tickets submitted by you, tickets you are working on, and those tickets that have no owner." %}</p>
@@ -28,5 +27,4 @@
 {% trans "Closed & resolved Tickets you used to work on" as ticket_list_caption %}
 {% include 'helpdesk/include/tickets.html' with ticket_list=user_tickets_closed_resolved ticket_list_empty_message="" %}
 {% endif %}
-
 {% endblock %}
